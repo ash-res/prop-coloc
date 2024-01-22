@@ -1,4 +1,4 @@
-# "A frequentist test of proportional colocalization after selecting relevant genetic variants" #
+# A frequentist test of proportional colocalization after selecting relevant genetic variants #
 # by Ashish Patel, John C. Whittaker, & Stephen Burgess #
 
 * R code to run the method: prop-coloc.R
@@ -6,13 +6,13 @@
 
 Interpreting key outputs:
  * full: p-value of prop-coloc-full test based on top J variants for each trait
-   * a low p-value suggests evidence *against* proportional colocalization when considering top J variants for each trait  
- * LM_full: p-value of LM test based on top J variants for each trait  
-   a low p-value suggests evidence *for* a causal variant for trait 1 when considering top J variants for each trait  
- * cond: p-value of prop-coloc-cond (to two decimal places) if a specific significance level (alpha) is not inputted  
-   a low p-value suggests evidence *against* proportional colocalization when considering lead variants for each trait
- * LM: p-value of LM test based on lead variants  
-   a low p-value suggests evidence *for* a causal variant for trait 1 when considering lead variants for each trait
+ *     a low p-value suggests evidence *against* proportional colocalization when considering top J variants for each trait  
+ * LM_full: p-value of LM test based on top J variants for each trait
+ *     a low p-value suggests evidence *for* a causal variant for trait 1 when considering top J variants for each trait  
+ * cond: p-value of prop-coloc-cond (to two decimal places) if a specific significance level (alpha) is not inputted
+ *     a low p-value suggests evidence *against* proportional colocalization when considering lead variants for each trait
+ * LM: p-value of LM test based on lead variants
+ *     a low p-value suggests evidence *for* a causal variant for trait 1 when considering lead variants for each trait
 
 Inputs (*one* sample summary data):
   b1: beta coefficients for trait 1
