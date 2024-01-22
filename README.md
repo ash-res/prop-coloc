@@ -6,7 +6,7 @@
 
 Interpreting key outputs:
  * full: p-value of prop-coloc-full test based on top J variants for each trait  
-   a low p-value suggests evidence *against* proportional colocalization when considering top J variants for each trait  
+   * * a low p-value suggests evidence *against* proportional colocalization when considering top J variants for each trait  
  * LM_full: p-value of LM test based on top J variants for each trait  
    a low p-value suggests evidence *for* a causal variant for trait 1 when considering top J variants for each trait  
  * cond: p-value of prop-coloc-cond (to two decimal places) if a specific significance level (alpha) is not inputted  
@@ -29,14 +29,18 @@ Inputs (*one* sample summary data):
   traits (optional): a character vector of the two trait names
 
 Outputs:
-  full: p-value of prop-coloc-full test based on top J variants for each trait
-  eta_full: eta (proportionality constant) estimate based on top J variants for each trait
-  LM_full: p-value of LM test based on top J variants for each trait 
-  cond: p-value of prop-coloc-cond (to two decimal places) if alpha is not specified
-  ... or logical TRUE/FALSE for whether prop-coloc hypothesis is rejected (TRUE means the null is rejected)
-  eta: proportionality constant estimate based on lead variants
+  full: p-value of prop-coloc-full test based on top J variants for each trait  
+  
+  eta_full: eta (proportionality constant) estimate based on top J variants for each trait  
+  
+  LM_full: p-value of LM test based on top J variants for each trait  
+  
+  cond: p-value of prop-coloc-cond (to two decimal places) if alpha is not specified  
+  ... or logical TRUE/FALSE for whether prop-coloc hypothesis is rejected (TRUE means the null is rejected)  
+  
+  eta: proportionality constant estimate based on lead variants  
   Q: GMM criterion based on lead variants
   LM: p-value of LM test based on lead variants
   convergence: whether uniroot function converged to find a conditional critical value for the prop-coloc-cond test
   top: two most relevant variants selected for the conditional proportional colocalization test
-# variants: full set of variants used to fit multivariable linear variant--trait models
+  variants: full set of variants used to fit multivariable linear variant--trait models
