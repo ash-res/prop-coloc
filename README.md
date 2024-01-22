@@ -5,8 +5,8 @@
 * R Markdown example: https://htmlpreview.github.io/?https://github.com/ash-res/prop-coloc/blob/main/prop-coloc.html
 
 Interpreting key outputs:
- * full: p-value of prop-coloc-full test based on top J variants for each trait  
-   * * a low p-value suggests evidence *against* proportional colocalization when considering top J variants for each trait  
+ * full: p-value of prop-coloc-full test based on top J variants for each trait
+ * * a low p-value suggests evidence *against* proportional colocalization when considering top J variants for each trait  
  * LM_full: p-value of LM test based on top J variants for each trait  
    a low p-value suggests evidence *for* a causal variant for trait 1 when considering top J variants for each trait  
  * cond: p-value of prop-coloc-cond (to two decimal places) if a specific significance level (alpha) is not inputted  
