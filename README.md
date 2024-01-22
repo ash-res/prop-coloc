@@ -1,5 +1,6 @@
 ## A frequentist test of proportional colocalization after selecting relevant genetic variants ##
-### by Ashish Patel, John C. Whittaker, & Stephen Burgess ###
+#### by Ashish Patel, John C. Whittaker, & Stephen Burgess #### 
+
 
 * R code to run the method: prop-coloc.R
 * R Markdown example: https://htmlpreview.github.io/?https://github.com/ash-res/prop-coloc/blob/main/prop-coloc.html
