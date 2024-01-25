@@ -6,38 +6,46 @@
 * R Markdown example: https://htmlpreview.github.io/?https://github.com/ash-res/prop-coloc/blob/main/prop-coloc.html
 
 Interpreting key outputs:
- * full: p-value of prop-coloc-full test based on top J variants for each trait
+ * p_cond: p-value of prop-coloc-cond (to two decimal places) if a specific significance level (alpha) is not specified
+     * a low p-value suggests evidence *against* proportional colocalization when considering the lead variants for each trait
+ * LM_cond: p-value of LM test based on lead variants
+     * a low p-value suggests evidence *for* a causal variant for trait 1 when considering lead variants for each trait
+ * p_full: p-value of prop-coloc-full test based on top J variants for each trait
      * a low p-value suggests evidence *against* proportional colocalization when considering top J variants for each trait  
  * LM_full: p-value of LM test based on top J variants for each trait
-     * a low p-value suggests evidence *for* a causal variant for trait 1 when considering top J variants for each trait  
- * cond: p-value of prop-coloc-cond (to two decimal places) if a specific significance level (alpha) is not inputted
-     * a low p-value suggests evidence *against* proportional colocalization when considering lead variants for each trait
- * LM: p-value of LM test based on lead variants
-     * a low p-value suggests evidence *for* a causal variant for trait 1 when considering lead variants for each trait
+     * a low p-value suggests evidence *for* a causal variant for trait 1 when considering top J variants for each trait
 
 Inputs (*one* sample summary data):
  * b1: beta coefficients for trait 1
- * se1: standard errors for trait 1
+ * se1 standard errors for trait 1
  * b2: beta coefficients for trait 2
  * se2: standard errors for trait 2
  * n: sample size
  * ld: genetic variant correlation matrix
- * tau (optional): correlation between trait 1 and trait 2; if unspecified, then set equal to 0
- * alpha (optional): nominal size of the conditional proportional colocalisation test; otherwise reported to 2 decimal places
- * prune (optional): R^2 pruning threshold for variant correlations; default: R^2 = 0.6
- * J (optional): the top J variants for at least one trait are used to fit multivariable trait-variant linear models; default: J=10
- * figs (optional): return plots of the fitted multivariable variant--trait associations of top J variants for each trait
+ * tau (optional): correlation between trait 1 and trait 2; if traits are measured in separate samples, then this should be set to 0 (default value is 0)
+ * alpha (optional): nominal size of the conditional proportional colocalization test; if unspecified, p-value is reported to 2 decimal places
+ * prune (optional): R^2 pruning threshold for variant correlations; if unspecified (default value is R^2 = 0.6)
+ * J (optional): the top *J* variants for at least one trait are used to fit multivariable trait-variant linear models (default value is J=10)
+ * figs (optional): logical: if \code{TRUE}, return plots of the univariable and fitted multivariable variant--trait associations of top *J* variants for each trait (default value is \code{FALSE})
  * traits (optional): a character vector of the two trait names
+ * seed (optional): the seed for random sampling involved in computing conditional critical values for the prop-coloc-cond p-value (default value is 100)
 
-Outputs:
+Output is a list containing:
  * full: p-value of prop-coloc-full test based on top J variants for each trait
- * eta_full: eta (proportionality constant) estimate based on top J variants for each trait
- * LM_full: p-value of LM test based on top J variants for each trait
- * cond: p-value of prop-coloc-cond (to two decimal places) if alpha is not specified
-   * or logical TRUE/FALSE for whether prop-coloc hypothesis is rejected (TRUE means the null is rejected)
- * eta: proportionality constant estimate based on lead variants
- * Q: GMM criterion based on lead variants
- * LM: p-value of LM test based on lead variants
+ * p_cond: p-value of prop-coloc-cond (to two decimal places), or (if \code{alpha} specified) logical \code{TRUE}/\code{FALSE} for whether the proportional colocalization null hypothesis is rejected (if \code{TRUE}) or not rejected (if \code{FALSE}) at the specified \code{alpha} significance threshold. Null hypothesis is that the beta-coefficients are proportional (this represents proportional colocalization), rejection indicates failure to proportionately colocalize.
+ * eta_cond: proportionality constant based on lead variants for each trait
+ * LM_cond: p-value of Lagrange Multiplier test based on lead variants for each trait. Null hypothesis is that the proportionality constant is zero, rejection indicates proportionality constant is non-zero. Colocalization is only meaningful if the proportionality constant is non-zero.
+ * p_full: p-value of prop-coloc-full test based on top *J* variants for each trait. Null hypothesis is that the beta-coefficients are proportional (this represents proportional colocalization), rejection indicates failure to colocalize.
+ * eta_full: proportionality constant based on top *J* variants for each trait
+ * LM_full: p-value of Lagrange Multiplier test based on top J variants for each trait. Null hypothesis is that the proportionality constant is zero, rejection indicates proportionality constant is non-zero. Colocalization is only meaningful if the proportionality constant is non-zero.
+ * Q: naive test statistic for proportional colocalization hypothesis from prop-coloc-cond
+ * alpha: nominal size of the conditional proportional colocalization test (if specified)
  * convergence: whether uniroot function converged to find a conditional critical value for the prop-coloc-cond test
- * top: two most relevant variants selected for the conditional proportional colocalization test
- * variants: full set of variants used to fit multivariable linear variant--trait models
+ * top: two most relevant variants selected for the prop-coloc-cond test
+ * variants: set of variants used for the prop-coloc-full test
+ * fig_uni: plot of the univariable variant--trait associations of top *J* variants for each trait (if \code{figs} is specified and \code{TRUE})
+ * fig_multi: plot of the fitted multivariable variant--trait associations of top *J* variants for each trait (if \code{figs} is specified and \code{TRUE})
+
+Example:
+ * load("GLP1R.RData")
+ * res <- prop.coloc(b1=thyroid$beta, se1=thyroid$se, b2=lung$beta, se2=lung$se, n=838, ld=ld)
