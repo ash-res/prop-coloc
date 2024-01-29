@@ -15,7 +15,7 @@ Interpreting key outputs:
  * LM_full: p-value of LM test based on top J variants for each trait
      * a low p-value suggests evidence *for* a causal variant for trait 1 when considering top J variants for each trait
 
-Inputs (*one* sample summary data):
+Inputs (genetic association summary data):
  * b1: beta coefficients for trait 1
  * se1 standard errors for trait 1
  * b2: beta coefficients for trait 2
@@ -31,7 +31,6 @@ Inputs (*one* sample summary data):
  * seed (optional): the seed for random sampling involved in computing conditional critical values for the prop-coloc-cond p-value (default value is 100)
 
 Output is a list containing:
- * full: p-value of prop-coloc-full test based on top J variants for each trait
  * p_cond: p-value of prop-coloc-cond (to two decimal places), or (if \code{alpha} specified) logical \code{TRUE}/\code{FALSE} for whether the proportional colocalization null hypothesis is rejected (if \code{TRUE}) or not rejected (if \code{FALSE}) at the specified \code{alpha} significance threshold. Null hypothesis is that the beta-coefficients are proportional (this represents proportional colocalization), rejection indicates failure to proportionately colocalize.
  * eta_cond: proportionality constant based on lead variants for each trait
  * LM_cond: p-value of Lagrange Multiplier test based on lead variants for each trait. Null hypothesis is that the proportionality constant is zero, rejection indicates proportionality constant is non-zero. Colocalization is only meaningful if the proportionality constant is non-zero.
