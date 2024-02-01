@@ -2,7 +2,7 @@
 #### by Ashish Patel, John C. Whittaker, & Stephen Burgess #### 
 
 
-##### Installation
+##### R package installation
 * devtools::install_github("ash-res/prop-coloc")
 
 ##### R Markdown example
