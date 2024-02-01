@@ -1,0 +1,20 @@
+Package: prop.coloc
+Title: A frequentist test of proportional colocalization after selecting relevant genetic variants
+Version: 1.0.0
+Authors@R: 
+    c(person(given = "Ashish", family = "Patel", email = "ashish.patel@mrc-bsu.cam.ac.uk", role = c("cre","aut")),
+	person(given = "Stephen", family = "Burgess", email = "sb452@medschl.cam.ac.uk", role = "aut"))
+Description: A proportional colocalization test that accounts for uncertainty in variant selection using summary data.
+License: use_mit_license()
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
+Imports:
+	ggplot2 (>= 3.3.0)
+Depends: 
+    R (>= 2.10)
+LazyData: true
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
