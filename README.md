@@ -49,4 +49,4 @@
  * fig_multi: plot of the fitted multivariable variant--trait associations of top J variants for each trait (if *figs* is specified and *TRUE*)
 
 ##### Example
- * res <- prop.coloc(b1=GLP1R$thyroid$beta, se1=GLP1R$thyroid$se, b2=GLP1R$lung$beta, se2=GLP1R$lung$se, n=838, ld=ld, alpha=0.05)
+ * res <- prop.coloc(b1=GLP1R$thyroid$beta, se1=GLP1R$thyroid$se, b2=GLP1R$lung$beta, se2=GLP1R$lung$se, n=838, ld=GLP1R$ld, alpha=0.05)
