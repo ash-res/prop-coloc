@@ -23,7 +23,7 @@
  * se1 standard errors for trait 1
  * b2: beta coefficients for trait 2
  * se2: standard errors for trait 2
- * n: sample size
+ * n: sample size; a one-sample analysis is performed if only one sample size is entered. If two sample sizes are entered, then a two-sample analysis is performed under the assumption that genetic associations with traits 1 and 2 are measured from non-overlapping samples
  * ld: genetic variant correlation matrix
  * tau (optional): correlation between trait 1 and trait 2; if traits are measured in separate samples, then this should be set to 0 (default value is 0)
  * alpha (optional): nominal size of the conditional proportional colocalization test; if unspecified, p-value is reported to 2 decimal places
@@ -50,3 +50,6 @@
 
 ##### Example
  * res <- prop.coloc(b1=GLP1R$thyroid$beta, se1=GLP1R$thyroid$se, b2=GLP1R$lung$beta, se2=GLP1R$lung$se, n=838, ld=GLP1R$ld, alpha=0.05)
+
+##### Paper
+ * for further details, please see the preprint: https://arxiv.org/abs/2402.12171
