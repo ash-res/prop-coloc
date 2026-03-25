@@ -11,19 +11,17 @@
 ##### Interpreting key outputs
  * p_cond: p-value of prop-coloc-cond (to two decimal places) if a specific significance level (alpha) is not specified
      * a low p-value suggests evidence *against* proportional colocalization when considering the lead variants for each trait
- * LM_cond: p-value of LM test based on lead variants
+ * p_eta: p-value of LM test based on lead variants
      * a low p-value suggests evidence *for* a causal variant for trait 1 when considering lead variants for each trait
  * p_full: p-value of prop-coloc-full test based on top J variants for each trait
      * a low p-value suggests evidence *against* proportional colocalization when considering top J variants for each trait  
- * LM_full: p-value of LM test based on top J variants for each trait
-     * a low p-value suggests evidence *for* a causal variant for trait 1 when considering top J variants for each trait
 
 ##### Inputs (genetic association summary data)
  * b1: beta coefficients for trait 1
  * se1 standard errors for trait 1
  * b2: beta coefficients for trait 2
  * se2: standard errors for trait 2
- * n: sample size; a one-sample analysis is performed if only one sample size is entered. If two sample sizes are entered, then a two-sample analysis is performed under the assumption that genetic associations with traits 1 and 2 are measured from non-overlapping samples
+ * n: sample size; a one-sample analysis is performed if only one sample size is entered. If two sample sizes are entered, then a two-sample analysis is performed. Set tau=0 if traits 1 and 2 are measured from non-overlapping samples.
  * ld: genetic variant correlation matrix
  * tau (optional): correlation between trait 1 and trait 2; if traits are measured in separate samples, then this should be set to 0 (default value is 0)
  * alpha (optional): nominal size of the conditional proportional colocalization test; if unspecified, p-value is reported to 2 decimal places
@@ -49,7 +47,7 @@
  * fig_multi: plot of the fitted multivariable variant--trait associations of top J variants for each trait (if *figs* is specified and *TRUE*)
 
 ##### Example
- * res <- prop.coloc(b1=GLP1R$thyroid$beta, se1=GLP1R$thyroid$se, b2=GLP1R$lung$beta, se2=GLP1R$lung$se, n=838, ld=GLP1R$ld, alpha=0.05)
+ * res <- prop.coloc(b1=GLP1R$atrial_appendage$beta, se1=GLP1R$atrial_appendage$se, b2=GLP1R$left_ventricle$beta, se2=GLP1R$left_ventricle$se, n=GLP1R$n$n_donors[c(2,4)], ld=GLP1R$ld, tau=GLP1R$trait_correlations[2,4],figs=TRUE,traits=c("atrial appendage","left_ventricle"),clump=0.8)
 
 ##### Paper
  * for further details, please see the preprint: https://arxiv.org/abs/2402.12171
