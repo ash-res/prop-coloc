@@ -5,9 +5,6 @@
 ##### Installing the R package
 * devtools::install_github("ash-res/prop-coloc")
 
-##### R Markdown example
-* https://htmlpreview.github.io/?https://github.com/ash-res/prop-coloc/blob/main/prop-coloc.html
-
 ##### Interpreting key outputs
  * p_cond: p-value of prop-coloc-cond (to two decimal places) if a specific significance level (alpha) is not specified
      * a low p-value suggests evidence *against* proportional colocalization when considering the lead variants for each trait
