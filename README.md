@@ -34,11 +34,9 @@
 ##### Output is a list containing...
  * p_cond: p-value of prop-coloc-cond (to two decimal places), or (if *alpha* specified) logical *TRUE*/*FALSE* for whether the proportional colocalization null hypothesis is rejected (if *TRUE*) or not rejected (if *FALSE*) at the specified *alpha* significance threshold. Null hypothesis is that the beta-coefficients are proportional (this represents proportional colocalization), rejection indicates failure to proportionately colocalize.
  * eta_cond: proportionality constant based on lead variants for each trait
- * LM_cond: p-value of Lagrange Multiplier test based on lead variants for each trait. Null hypothesis is that the proportionality constant is zero, rejection indicates proportionality constant is non-zero. Colocalization is only meaningful if the proportionality constant is non-zero.
+ * p_eta: p-value of Lagrange Multiplier test based on lead variants for each trait. Null hypothesis is that the proportionality constant is zero, rejection indicates proportionality constant is non-zero. Colocalization is only meaningful if the proportionality constant is non-zero.
  * p_full: p-value of prop-coloc-full test based on top J variants for each trait. Null hypothesis is that the beta-coefficients are proportional (this represents proportional colocalization), rejection indicates failure to colocalize.
  * eta_full: proportionality constant based on top J variants for each trait
- * LM_full: p-value of Lagrange Multiplier test based on top J variants for each trait. Null hypothesis is that the proportionality constant is zero, rejection indicates proportionality constant is non-zero. Colocalization is only meaningful if the proportionality constant is non-zero.
- * Q: naive test statistic for proportional colocalization hypothesis from prop-coloc-cond
  * alpha: nominal size of the conditional proportional colocalization test (if specified)
  * convergence: whether uniroot function converged to find a conditional critical value for the prop-coloc-cond test
  * top: two most relevant variants selected for the prop-coloc-cond test
